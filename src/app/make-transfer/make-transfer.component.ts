@@ -25,29 +25,18 @@ export class MakeTransferComponent implements OnInit {
   ngOnInit(): void {
     this.recentTransferData = transactions.data;
     this.dropListCatalog = [...new Set(transactions.data.map(value => value.merchant))];
-    console.log('recent Transfer Data :O', this.recentTransferData);
-    console.log('type of rtd', typeof this.recentTransferData);
-    console.log('droplist catalog', this.dropListCatalog);
-    console.log('selected values', this.selectedValues);
   }
 
   transferData(): void {
     this.errorMsg = false;
-    console.log('hello world!');
-    console.log('selectedvalues', this.selectedValues);
-    // const reg = new RegExp(/^-?\d+\.?\d*$/);
-    // console.log('tiene letras?', reg.test(this.depositAmount));
-    console.log('deposit amount', this.depositAmount);
     if (Number(this.depositAmount) && this.selectedValues.length > 1){
       if (this.totalMoney - Number(this.depositAmount) > -500) {
         this.messageModal = `Are you sure you want to deposit ${this.depositAmount} to ${this.selectedValues}`;
         $('#exampleModalCenter').modal('toggle');
       } else {
         this.errorMsg = true;
-        console.log('excede la cantidad');
         this.messageModal = 'Your balance can`t go below -$500.00';
         $('#exampleModalCenter').modal('toggle');
-        // document.getElementById('exampleModalCenter').style.display = "block";
       }
     } else {
       this.errorMsg = true;
@@ -58,9 +47,7 @@ export class MakeTransferComponent implements OnInit {
 
   makeTransfer() {
     this.totalMoney -= Number(this.depositAmount);
-    console.log('nuevo monto', this.totalMoney);
     const indexDestination = this.recentTransferData.map(val => val.merchant).indexOf(this.selectedValues);
-    console.log('index of destination', indexDestination);
     const data = this.recentTransferData[indexDestination];
     const d = new Date();
     const n = d.getTime();
@@ -69,8 +56,6 @@ export class MakeTransferComponent implements OnInit {
       amount: this.depositAmount,
       transactionDate: n,
     };
-    console.log('new transaction values antes :O', newTransaction);
-    console.log('new transaction values despues :O', newTransaction);
     this.recentTransferData.push(newTransaction);
     $('#exampleModalCenter').modal('hide');
   }

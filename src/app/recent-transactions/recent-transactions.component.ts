@@ -51,7 +51,6 @@ export class RecentTransactionsComponent implements OnInit {
   }
 
   descendingDate() {
-    console.log('para abajoooo!!');
     if (this.noAmount) {
       this.noAmount = false;
       this.activeAmount = !this.activeAmount;
@@ -64,17 +63,14 @@ export class RecentTransactionsComponent implements OnInit {
   }
 
   sortBeneficiary() {
-    console.log('taraaaa');
     if (this.noAmount) {
       this.noAmount = false;
       this.activeAmount = !this.activeAmount;
     }
     if (this.activeBeneficiary) {
-      console.log('que sucede?');
       this.recentTransferData.sort((a, b) => (b.merchant > a.merchant) ? 1 : ((a.merchant > b.merchant) ? -1 : 0));
       this.activeBeneficiary = false;
     } else {
-      console.log('que sucede? 2!');
       this.recentTransferData.sort((a, b) => (a.merchant > b.merchant) ? 1 : ((b.merchant > a.merchant) ? -1 : 0));
       this.activeBeneficiary = true;
     }
@@ -82,7 +78,6 @@ export class RecentTransactionsComponent implements OnInit {
   }
 
   sortAmount() {
-    console.log('shuper shuper');
     if (this.noBeneficiary) {
       this.noBeneficiary = false;
       this.activeBeneficiary = !this.activeBeneficiary;
@@ -98,16 +93,13 @@ export class RecentTransactionsComponent implements OnInit {
   }
 
   clearSearchField() {
-    this.searchField = "";
+    this.searchField = '';
     this.recentTransferData = this.backData;
   }
 
   search(e) {
     this.backData = this.recentTransferData;
-    console.log('presionaron enter', e);
-    console.log('filtered data', this.recentTransferData.filter(data => data['merchant'].includes(e)));
     this.recentTransferData = this.recentTransferData.filter(data => data['merchant'].includes(e));
-    console.log('back up es', this.backData);
   }
 
 }
