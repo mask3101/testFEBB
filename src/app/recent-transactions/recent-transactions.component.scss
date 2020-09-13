@@ -1,0 +1,89 @@
+.recentTransfer {
+  float: right;
+  width: 60%;
+  height: 100%;
+  margin: 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .8), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+  .headerRecent {
+    background-color: #198396;
+    height: 55px;
+    color: white;
+    border-radius: 5px 5px 0px 0px;
+    .leftColRecentTransfer {
+      padding-top: 10px;
+      padding-left: 15px;
+      width: 45px;
+      float: left;
+    }
+    .rightColRecentTransfer {
+      float: right;
+      line-height: 55px;
+      text-align: center;
+      width: calc(100% - 60px);
+    }
+  }
+  .whiteBckg {
+    background-color: white;
+    padding: 15px 15px;
+    .labelTransfer {
+      color: black;
+      font-family: 'Kanit';
+      font-size: .75em;
+      
+      margin: 0px 15px 15px;
+    }
+  }
+  .outterCard {
+    background-color: white;
+    padding: 15px 10px 25px 35px;;
+    border-radius: 0px 0px 5px 5px;
+    .displayRecentTransactions {
+      border: gray solid 1px;
+      border-left: none;
+      width: 100%;
+      background-color: white;
+      color: black;
+      .align-text-middle-end {
+        text-align: end;
+        line-height: 40px;
+      }
+      .align-text-middle {
+        line-height: 40px;
+      }
+      .category {
+        height: inherit;
+        width: 10px;
+        // float: left;
+        &.firstCat {
+          background-color: #12a580;
+        }
+        &.secondCat {
+          background-color: #d51271;
+        }
+        &.thirdCat {
+          background-color: #c12020;
+        }
+        &.fourthCat {
+          background-color: #c89616;
+        }
+        &.fifthCat {
+          background-color: #e25a2c;
+        }
+        &.sixthCat {
+          background-color: #1180aa;
+        }
+        &.seventhCat {
+          background-color: #fbbb1b;
+        }
+      }
+    }
+  }
+  img {
+    width: 2.5rem;
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+}

@@ -1,0 +1,62 @@
+.makeTransfer {
+  float: left;
+  width: 25%;
+  height: 100%;
+  margin: 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+  .headerTransfer {
+    border-radius: 5px 5px 0px 0px;
+    background-color: #198396;
+    height: 40px;
+    color: white;
+    .leftColTransfer {
+      padding-top: 10px;
+      padding-left: 15px;
+      width: 45px;
+      float: left;
+    }
+    .rightColTransfer {
+      float: right;
+      text-align: center;
+      line-height: 40px;;
+      width: calc(100% - 60px);
+    }
+  }
+  .formBody {
+    padding: 10px;
+    height: 300px;
+    background-color: #FFF;
+    border-radius: 0px 0px 5px 5px;
+    .labelTransfer {
+      color: black;
+      font-family: 'Kanit';
+      font-size: .75em;
+      margin-bottom: 15px;
+    }
+    input {
+      outline: 0;
+      border-width: 0 0 2px;
+      border-color: #D2CECA;
+      width: 95%;
+      margin-bottom: 15px;
+    }
+    select {
+      outline: 0;
+      border-width: 0 0 2px;
+      border-color: #D2CECA;
+      width: 95%;
+      margin-bottom: 15px;
+    }
+    .subButton {
+      color: white;
+      background-color: #FF7B30;
+      float: right;
+      border: 0;
+      font-size: 1em;
+      height: 40px;
+      width: 75%;
+      margin-top: 20px;
+      border-radius: 3px;
+    }
+  }
+}

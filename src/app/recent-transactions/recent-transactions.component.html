@@ -1,0 +1,64 @@
+<div class="recentTransfer">
+  <div class="headerRecent">
+    <div class="leftColRecentTransfer">
+      <img src="assets/icons/briefcase.png">
+    </div>
+    <div class="rightColRecentTransfer">Recent Transactions</div>
+  </div>
+  <div class="whiteBckg">
+  
+  <div class="example-button-row">
+    <!-- <mat-form-field class="example-form-field">
+      <mat-label>Clearable input</mat-label>
+      <input matInput type="text" [(ngModel)]="value">
+      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field> -->
+    <mat-form-field>
+      <input [(ngModel)]="searchField" matInput placeholder="Search by typing..." autocomplete="off" (keydown.enter)="search($event.target.value)">
+      <button mat-button mat-icon-button matSuffix (click)="clearSearchField()" *ngIf="searchField">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-label class="labelTransfer">
+      SORT BY
+    </mat-label>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <div class="dropdown">
+        <button class="btn dropdown-toggle btn-outline-dark btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          DATE
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" (click)="ascendingDate()">Ascending</a>
+          <a class="dropdown-item" (click)="descendingDate()">Descending</a>
+        </div>
+      </div>
+      <button type="button" class="btn btn-outline-dark btn-sm" (click)="sortBeneficiary()">BENEFICIARY</button>
+      <button type="button" class="btn btn-outline-dark btn-sm" (click)="sortAmount()">AMOUNT</button>
+    </div>
+  </div>
+  </div>
+  <div class="container outterCard">
+    <div class="row displayRecentTransactions" *ngFor="let transaction of recentTransferData">
+      <div class="category" [ngClass]="{'firstCat': transaction.categoryCode == '#12a580', 
+        'secondCat': transaction.categoryCode == '#d51271', 'thirdCat': transaction.categoryCode == '#c12020',
+        'fourthCat': transaction.categoryCode == '#c89616', 'fifthCat': transaction.categoryCode == '#e25a2c',
+        'sixthCat': transaction.categoryCode == '#1180aa', 'seventhCat': transaction.categoryCode == '#fbbb1b'  }">
+        </div>
+      <div class="col-sm-2 align-text-middle">
+        {{transaction.transactionDate | date: 'MMM dd' }}
+      </div>
+      <div class="col-sm-1 align-text-middle">
+        <img src="{{transaction.merchantLogo}}" alt="Generic placeholder image">
+      </div>
+      <div class="col-sm-5">
+        <div>{{transaction.merchant}}</div>
+        <div>{{transaction.transactionType}}</div>
+      </div>
+      <div class="col-sm align-text-middle-end">
+        {{transaction.amount | currency}}
+      </div>
+    </div>
+  </div>
+</div>
